@@ -56,6 +56,19 @@ dev mode:
 ```
 * access container logs
 
+### ENV file for running this template locally
+
+* create .env file in the root
+
+```
+EXTERNAL_DATASOURCE_URL="url for your external DS if willing to fetch data from some ext service"
+ELASTIC_URL=http://localhost:9200
+OAUTH2_URL="your oauth2 url"
+OAUTH_ACCESS_KEY="your access key"
+OAUTH_SECRET="your sercret"
+PORT=8080
+```
+
 
 
 
