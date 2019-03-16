@@ -1,0 +1,15 @@
+version: '2'
+services:
+  elastic-backend:
+    build: .
+    image: elastic-backend
+    container_name: elastic-backend
+    ports:
+      - "18080:8080"
+    environment:
+      EXTERNAL_DATASOURCE_URL: "EXTERNAL DS ULR HERE"
+      ELASTIC_URL: "http://localhost:9200"
+      OAUTH2_URL: "oauth2url"
+      OAUTH_ACCESS_KEY: "YOUR_ACCESS_KEY"
+      OAUTH_SECRET: "YOUR_SECRET"
+      PORT: 8080
