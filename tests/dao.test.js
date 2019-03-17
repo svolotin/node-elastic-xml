@@ -49,11 +49,14 @@ test('Should generate xml from elasticsearch results', async () => {
   mockFunc.mockImplementationOnce(() => mockQueryFirstCall)
   await cut.getXml(response, 'test')
   expect(response._responseData.toString('utf8')).toContain('FEATURE')
+  mockFunc.mockReset()
 })
 
 test('Should get coordinates from elasticsearch and invoke query to external datasouce', async () => {
-  query.search.mockImplementation(() => mockQueryDefaultCall)
-  query.getExternalData.mockImplementation(() => mockExternalCall)
+  mock1 = query.search.mockImplementation(() => mockQueryDefaultCall)
+  mock2 = query.getExternalData.mockImplementation(() => mockExternalCall)
   await cut.getXmlFromExternal(response2, 'test')
   expect(response._responseData.toString('utf8')).toContain('SpatialUserData')
+  mock1.mockReset()
+  mock2.mockReset()
 })
