@@ -7,6 +7,7 @@ node api template/example for:
 * building xml for response using [xmlbuilder](https://www.npmjs.com/package/xmlbuilder)
 * fetching data from imaginary external service using [axios](https://github.com/axios/axios)
 * converting projection of coordinates and changing coordinate representation for XML using [proj4](https://github.com/proj4js/proj4js)
+* Unit tests using [jest](https://jestjs.io/)
 
 ### prerequisites for running this example
 
