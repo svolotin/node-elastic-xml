@@ -13,6 +13,7 @@ node api template/example for:
 * elasticsearch and axios responses are mocked so playing and developing without having elasticsearch instance is possible by running tests.
 
 ```
+ npm install
  npm run test
 ```
 For running service in dev mode:
