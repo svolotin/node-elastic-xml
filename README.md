@@ -2,10 +2,11 @@
 
 node api template/example for:
 
-* making elasticsearch queries
-* building xml for response
-* fetching data from imaginary external service
-* converting projection of coordinates and changing coordinate representation for XML
+* rest api using [express](https://expressjs.com/)
+* making elasticsearch queries using [elasticsearch client](https://www.npmjs.com/package/elasticsearch)
+* building xml for response using [xmlbuilder](https://www.npmjs.com/package/xmlbuilder)
+* fetching data from imaginary external service using [axios](https://github.com/axios/axios)
+* converting projection of coordinates and changing coordinate representation for XML using [proj4](https://github.com/proj4js/proj4js)
 
 ### prerequisites for running this example
 
