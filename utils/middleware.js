@@ -24,7 +24,7 @@ async function auth(request, response, next) {
           'Authorization': 'Basic ' + digest,
           'Accept': 'application/json'
         }
-      });
+      })
       if (resp.data.active) {
         const end = Date.now()
         console.log('Successful auth. Time spent for oauth call: ', end - start)
