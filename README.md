@@ -1,12 +1,24 @@
 # node - elasticsearch - xml example
 
-node api template/example for elasticsearch dataproducts with geospatial conversions
+node api template/example for:
+
+* making elasticsearch queries
+* building xml for response
+* fetching data from imaginary external service
+* converting projection of coordinates and changing coordinate representation for XML
 
 ### prerequisites for running this example
 
-* Elasticsearch (create indexes and docs and modify xml model in code to fit your model)
-* .env file in root (for ENVs)
 * node.js installed
+* elasticsearch and axios responses are mocked so playing and developing without having elasticsearch instance is possible by running tests.
+
+```
+ npm run test
+```
+For running service in dev mode:
+* Elasticsearch (create indexes and docs and modify xml model in code to fit your model)
+* (optional) some external rest service
+* .env file in root (for ENVs)
 
 ##### Run locally (dev mode):
 
@@ -20,13 +32,6 @@ dev mode:
 ```
 * starts node in development mode with nodemon
 * auth routine in middleware is bybassed
-
-##### Unit tests:
-
-```
- npm run test
-```
-* runs unit tests
 
 ##### Prod mode:
 ```
