@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
-const axios = require("axios");
+const axios = require('axios')
 const oauth = process.env.OAUTH2_URL
 const digest = Buffer.from(process.env.OAUTH_ACCESS_KEY + ':' + process.env.OAUTH_SECRET).toString('base64')
 
@@ -33,7 +33,7 @@ async function auth(request, response, next) {
         response.status(401).send({ error: 'Unauthorized!' })
       }
     } catch (error) {
-      console.log('authentication failed', error);
+      console.log('authentication failed', error)
       response.status(500).send({ error: 'authentication failed!' })
     }
   } else {

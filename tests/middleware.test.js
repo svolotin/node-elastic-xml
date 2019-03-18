@@ -1,4 +1,4 @@
-const axios = require("axios")
+const axios = require('axios')
 const cut = require('../utils/middleware')
 const MockExpressResponse = require('mock-express-response')
 const MockExpressRequest = require('mock-express-request')
@@ -56,7 +56,7 @@ test('Should have response status 401 in negative case when auth goes nok', asyn
   const mockNok = axios.post.mockImplementation(() => mockResponseNok)
   await cut.auth(request, response2, next)
   expect(next).toHaveBeenCalledTimes(0)
-  expect(response2.statusCode).toBe(401);
+  expect(response2.statusCode).toBe(401)
   mockNok.mockReset()
   next.mockReset()
 })
@@ -65,7 +65,7 @@ test('Should have response status 500 in negative case when auth server does not
   const mockNok = axios.post.mockImplementation(() => mockResponseError)
   await cut.auth(request, response3, next)
   expect(next).toHaveBeenCalledTimes(0)
-  expect(response3.statusCode).toBe(500);
+  expect(response3.statusCode).toBe(500)
   mockNok.mockReset()
   next.mockReset()
 })
@@ -74,7 +74,7 @@ test('Should have response status 401 in negative case when Authorization does n
   const mockNok = axios.post.mockImplementation(() => mockResponseError)
   await cut.auth(request2, response4, next)
   expect(next).toHaveBeenCalledTimes(0)
-  expect(response4.statusCode).toBe(401);
+  expect(response4.statusCode).toBe(401)
   mockNok.mockReset()
   next.mockReset()
 })

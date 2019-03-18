@@ -4,7 +4,7 @@ const middleware = require('./utils/middleware')
 const bodyParser = require('body-parser')
 const router = require('./lib/routes/restapi')
 const app = express()
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001
 
 app.use(cors())
 app.use(bodyParser.json())
