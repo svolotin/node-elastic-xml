@@ -1,10 +1,10 @@
-const cut = require('../lib/controllers/dao')
-const MockExpressResponse = require('mock-express-response')
-const query = require('../lib/controllers/queryutils')
+const cut = require('../lib/controllers/dao');
+const MockExpressResponse = require('mock-express-response');
+const query = require('../lib/controllers/queryutils');
 
-const response = new MockExpressResponse()
-const response2 = new MockExpressResponse()
-jest.mock('../lib/controllers/queryutils')
+const response = new MockExpressResponse();
+const response2 = new MockExpressResponse();
+jest.mock('../lib/controllers/queryutils');
 
 const mockQueryDefaultCall = [{
   '_index': 'feature',
@@ -20,7 +20,7 @@ const mockQueryDefaultCall = [{
     'id': '636',
     'shape': '636'
   }
-}]
+}];
 
 const mockQueryFirstCall = [{
   '_index': 'spatialfeature',
@@ -40,23 +40,23 @@ const mockQueryFirstCall = [{
     'title': 'FEATURE',
     'visitors': 201
   }
-}]
+}];
 
-const mockExternalCall = '<?xml version=1.0 encoding=UTF-8?><SpatialUserData'
+const mockExternalCall = '<?xml version=1.0 encoding=UTF-8?><SpatialUserData';
 
 test('Should generate xml from elasticsearch results', async () => {
-  const mockFunc = query.search.mockImplementation(() => mockQueryDefaultCall)
-  mockFunc.mockImplementationOnce(() => mockQueryFirstCall)
-  await cut.getXml(response, 'test')
-  expect(response._responseData.toString('utf8')).toContain('FEATURE')
-  mockFunc.mockReset()
-})
+  const mockFunc = query.search.mockImplementation(() => mockQueryDefaultCall);
+  mockFunc.mockImplementationOnce(() => mockQueryFirstCall);
+  await cut.getXml(response, 'test');
+  expect(response._responseData.toString('utf8')).toContain('FEATURE');
+  mockFunc.mockReset();
+});
 
 test('Should get coordinates from elasticsearch and invoke query to external datasouce', async () => {
-  const mock1 = query.search.mockImplementation(() => mockQueryDefaultCall)
-  const mock2 = query.getExternalData.mockImplementation(() => mockExternalCall)
-  await cut.getXmlFromExternal(response2, 'test')
-  expect(response._responseData.toString('utf8')).toContain('SpatialUserData')
-  mock1.mockReset()
-  mock2.mockReset()
-})
+  const mock1 = query.search.mockImplementation(() => mockQueryDefaultCall);
+  const mock2 = query.getExternalData.mockImplementation(() => mockExternalCall);
+  await cut.getXmlFromExternal(response2, 'test');
+  expect(response._responseData.toString('utf8')).toContain('SpatialUserData');
+  mock1.mockReset();
+  mock2.mockReset();
+});

@@ -1,4 +1,4 @@
-const cut = require('../lib/controllers/xmlbuilder')
+const cut = require('../lib/controllers/xmlbuilder');
 
 // mock result from ES
 const shapes = [
@@ -17,7 +17,7 @@ const shapes = [
       'shape': '636'
     }
   }
-]
+];
 
 const feature = {
   '_index': 'spatialfeature',
@@ -37,9 +37,9 @@ const feature = {
     'title': 'FEATURE',
     'visitors': 201
   }
-}
+};
 
 test('xml should be generated and contain some fields from inputs', () => {
-  const result = cut.buildXML(feature, shapes)
-  expect(result).toContain('FEATURE')
-})
+  const result = cut.buildXML(feature, shapes);
+  expect(result).toContain('FEATURE');
+});
